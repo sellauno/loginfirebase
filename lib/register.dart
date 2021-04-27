@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'email_screen.dart';
 import 'emailnpassword.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -63,13 +64,13 @@ class _RegisterEmailSectionState extends State<RegisterEmailSection> {
                         email: _emailController.text,
                         pass: _passwordController.text);
                     if (result.user != null) {
-                      // Go to Profile Page
-                      //  Navigator.push(
-                      //      context,
-                      //      MaterialPageRoute(
-                      //         builder: (context) => ProfilePage(
-                      //           user: result.user,
-                      //         )));
+                      //Go to Profile Page
+                       Navigator.push(
+                           context,
+                           MaterialPageRoute(
+                              builder: (context) => EmailScreen(
+                                user: result.user,
+                              )));
                       setState(() {
                         percobaan = "berhasil formkey";
                       });

@@ -64,7 +64,9 @@ class _EmailPasswordFormState extends State<EmailPasswordForm> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (user) => EmailScreen()));
+                              builder: (context) => EmailScreen(
+                                user: result.user,
+                              )));
                     } else {
                       // Show Dialog
                       showDialog(

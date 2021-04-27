@@ -1,10 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:loginfirebase/login_page.dart';
-import 'package:loginfirebase/sign_in.dart';
-
 import 'emailnpassword.dart';
 
 class EmailScreen extends StatelessWidget {
+  final User user;
+  const EmailScreen({Key key, this.user}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +31,7 @@ class EmailScreen extends StatelessWidget {
                     color: Colors.black54),
               ),
               Text(
-                email,
+                user.email,
                 style: TextStyle(
                     fontSize: 25,
                     color: Colors.deepPurple,

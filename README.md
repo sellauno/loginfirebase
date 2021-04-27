@@ -1,3 +1,28 @@
+# Screenshots
+- Halaman Awal
+
+![screenshot](image/home.PNG)
+
+- Sign In Google
+
+![screenshot](image/googleacc.PNG)
+
+- Sign In Email & Password
+
+![screenshot](image/signin.PNG)
+
+- Register Email
+
+![screenshot](image/signup.PNG)
+
+- Halaman setelah login Google
+
+![screenshot](image/google.PNG)
+
+- Halaman setelah sign in / register Email & Password
+
+![screenshot](image/emailpass.PNG)
+
 # loginfirebase
 
 A new Flutter project.
