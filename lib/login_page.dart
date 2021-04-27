@@ -1,6 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:loginfirebase/sign_in.dart';
 import 'package:loginfirebase/first_screen.dart';
+import 'register.dart';
+import 'sign_in_email.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -21,6 +25,12 @@ class _LoginPageState extends State<LoginPage> {
               FlutterLogo(size: 150),
               SizedBox(height: 50),
               _signInButton(),
+              Container(
+                width: 250,
+                margin: EdgeInsets.only(top: 10, bottom: 15),
+                child: _signInButtonEmail(),
+              ),              
+              _registerLink()
             ],
           ),
         ),
@@ -67,6 +77,54 @@ class _LoginPageState extends State<LoginPage> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _signInButtonEmail() {
+    return OutlineButton(
+      splashColor: Colors.grey,
+      onPressed: () {
+        Navigator.pushNamed(context, '/signin');
+      },
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+      highlightElevation: 0,
+      borderSide: BorderSide(color: Colors.grey),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(
+              Icons.email,
+              color: Colors.green,
+              size: 35.0,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Text(
+                'Sign in with Email',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.grey,
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _registerLink() {
+    return Center(
+      child: new InkWell(
+        child: new Text(
+          "Belum memiliki akun? Register", 
+          style: TextStyle(color: Colors.blue),
+          ),
+        onTap: () => Navigator.pushNamed(context, '/register')
+      )
     );
   }
 }

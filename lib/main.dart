@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:loginfirebase/first_screen.dart';
+import 'package:loginfirebase/register.dart';
+import 'package:loginfirebase/sign_in_email.dart';
 import 'login_page.dart';
 
 void main() {
@@ -16,6 +19,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: LoginPage(),
+      routes: {
+        '/register': (context) => RegisterEmailSection(),
+        '/signin': (context) => EmailPasswordForm(),
+        '/firstScreen': (context) => FirstScreen(),
+      },
     );
   }
 }
