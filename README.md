@@ -1,27 +1,27 @@
 # Screenshots
 - Halaman Awal
 
-![screenshot](image/home.JPG)
+![screenshot](image/home.jpg)
 
 - Sign In Google
 
-![screenshot](image/googleacc.JPG)
+![screenshot](image/googleacc.jpg)
 
 - Sign In Email & Password
 
-![screenshot](image/signin.JPG)
+![screenshot](image/signin.jpg)
 
 - Register Email
 
-![screenshot](image/signup.JPG)
+![screenshot](image/signup.jpg)
 
 - Halaman setelah login Google
 
-![screenshot](image/google.JPG)
+![screenshot](image/google.jpg)
 
 - Halaman setelah sign in / register Email & Password
 
-![screenshot](image/emailpass.JPG)
+![screenshot](image/emailpass.jpg)
 
 # loginfirebase
 
