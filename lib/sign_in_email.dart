@@ -52,40 +52,50 @@ class _EmailPasswordFormState extends State<EmailPasswordForm> {
                 },
               ),
               Container(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                padding: const EdgeInsets.symmetric(vertical: 30.0),
                 alignment: Alignment.center,
-                child: RaisedButton(
-                  onPressed: () async {
-                    SignInSignUpResult result = await signInWithEmail(
-                        email: _emailController.text,
-                        pass: _passwordController.text);
+                child: ButtonTheme(
+                  height: 50,
+                  minWidth: 150,
+                  child: RaisedButton(
+                    onPressed: () async {
+                      SignInSignUpResult result = await signInWithEmail(
+                          email: _emailController.text,
+                          pass: _passwordController.text);
                       User user = result.user;
-                    if (user != null) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => EmailScreen(
-                                user: result.user,
-                              )));
-                    } else {
-                      // Show Dialog
-                      showDialog(
-                          context: context,
-                          builder: (context) => AlertDialog(
-                                title: Text("Error"),
-                                content: Text(result.message),
-                                actions: <Widget>[
-                                  FlatButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: Text("OK"),
-                                  )
-                                ],
-                              ));
-                    }
-                  },
-                  child: const Text('Login'),
+                      if (user != null) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => EmailScreen(
+                                      user: result.user,
+                                    )));
+                      } else {
+                        // Show Dialog
+                        showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                                  title: Text("Error"),
+                                  content: Text(result.message),
+                                  actions: <Widget>[
+                                    FlatButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text("OK"),
+                                    )
+                                  ],
+                                ));
+                      }
+                    },
+                    color: Colors.blue,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40)),
+                    child: const Text(
+                      'Sign In',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
                 ),
               ),
             ],

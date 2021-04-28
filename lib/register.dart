@@ -19,7 +19,6 @@ class _RegisterEmailSectionState extends State<RegisterEmailSection> {
   final TextEditingController _passwordController = TextEditingController();
   bool _success;
   String _userEmail;
-  String percobaan = "belum";
   Widget build(BuildContext context) {
     return Scaffold(
       //key: _scaffoldKey,
@@ -56,43 +55,51 @@ class _RegisterEmailSectionState extends State<RegisterEmailSection> {
                 },
               ),
               Container(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                padding: const EdgeInsets.symmetric(vertical: 30.0),
                 alignment: Alignment.center,
-                child: ElevatedButton(
-                  onPressed: () async {
-                    SignInSignUpResult result = await createUser(
-                        email: _emailController.text,
-                        pass: _passwordController.text);
-                    if (result.user != null) {
-                      //Go to Profile Page
-                       Navigator.push(
-                           context,
-                           MaterialPageRoute(
-                              builder: (context) => EmailScreen(
-                                user: result.user,
-                              )));
-                      setState(() {
-                        percobaan = "berhasil formkey";
-                      });
-                    } else {
-                      // Show Dialog
-                      showDialog(
-                          context: context,
-                          builder: (context) => AlertDialog(
-                                title: Text("Error"),
-                                content: Text(result.message),
-                                actions: <Widget>[
-                                  FlatButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: Text("OK"),
-                                  )
-                                ],
-                              ));
-                    }
-                  },
-                  child: const Text('Submit'),
+                child: ButtonTheme(
+                  height: 50,
+                  minWidth: 150,
+                  child: RaisedButton(
+                    onPressed: () async {
+                      SignInSignUpResult result = await createUser(
+                          email: _emailController.text,
+                          pass: _passwordController.text);
+                      if (result.user != null) {
+                        //Go to Profile Page
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => EmailScreen(
+                                      user: result.user,
+                                    )));
+                        setState(() {});
+                      } else {
+                        // Show Dialog
+                        showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                                  title: Text("Error"),
+                                  content: Text(result.message),
+                                  actions: <Widget>[
+                                    FlatButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text("OK"),
+                                    )
+                                  ],
+                                ));
+                      }
+                    },
+                    color: Colors.blue,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40)),
+                    child: const Text(
+                      'Sign Up',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
                 ),
               ),
             ],
