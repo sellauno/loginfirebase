@@ -1,10 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:loginfirebase/sign_in.dart';
 import 'package:loginfirebase/first_screen.dart';
-import 'register.dart';
-import 'sign_in_email.dart';
 
 class LoginPage extends StatefulWidget {
   @override
